@@ -18,3 +18,5 @@ app.listen(3000, (err) => {
 });
 
 console.log("hello! test")
+
+module.exports=app;
