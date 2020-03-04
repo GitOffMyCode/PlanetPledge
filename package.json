@@ -15,5 +15,13 @@
   "bugs": {
     "url": "https://github.com/GitOffMyCode/PlanetPledge/issues"
   },
-  "homepage": "https://github.com/GitOffMyCode/PlanetPledge#readme"
+  "homepage": "https://github.com/GitOffMyCode/PlanetPledge#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+  },
+  "start": "nodemon server.js"
 }
