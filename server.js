@@ -9,14 +9,4 @@ app.get("/pledges", (req, res) => {
   res.json(pledgeData);
 } )
 
-app.listen(3000, (err) => {
-  if (err) {
-      console.log("there was an error", err)
-      return;
-  };
-  console.log("now listening on port 3000");
-});
-
-console.log("hello! test")
-
-module.exports=app;
+module.exports = app;
