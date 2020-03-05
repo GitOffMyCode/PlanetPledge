@@ -22,5 +22,8 @@ module.exports = {
         "react"
     ],
     "rules": {
+        "no-multi-spaces": "error",
+        "no-multiple-empty-lines": "error",
+        // "indent": ["error", 2]
     }
 };
