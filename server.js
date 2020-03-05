@@ -11,5 +11,4 @@ app.get("/pledges", (req, res) => {
   res.json(pledgeData);
 })
 
-
 module.exports = app;

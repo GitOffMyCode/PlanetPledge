@@ -2,7 +2,8 @@ module.exports = {
     "env": {
         "browser": true,
         "commonjs": true,
-        "es6": true
+        "es6": true,
+        "node": true
     },
     "extends": [
         "eslint:recommended",
@@ -22,5 +23,8 @@ module.exports = {
         "react"
     ],
     "rules": {
+        "no-multi-spaces": "warn",
+        "no-multiple-empty-lines": "error"
+        // "indent": ["error", 2]
     }
 };
