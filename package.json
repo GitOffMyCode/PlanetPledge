@@ -1,7 +1,7 @@
 {
   "name": "planetpledges",
   "version": "1.0.0",
-  "description": "",
+  "description": "an app to make pledges to save the planet",
   "main": "index.js",
   "scripts": {
     "test": "jest",
@@ -11,7 +11,7 @@
     "type": "git",
     "url": "git+https://github.com/GitOffMyCode/PlanetPledge.git"
   },
-  "author": "",
+  "author": "Helen Gardner & Genevieve Heald at Infinity Works",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/GitOffMyCode/PlanetPledge/issues"
@@ -19,6 +19,7 @@
   "homepage": "https://github.com/GitOffMyCode/PlanetPledge#readme",
   "dependencies": {
     "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "pg": "^7.18.2",
     "postgresql": "0.0.1"
