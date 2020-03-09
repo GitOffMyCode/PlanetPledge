@@ -17,5 +17,5 @@ app.get('/pledges', db.getPledges);
 // url: http://localhost:3000/pledges/{id}
 app.get('/pledges/:id', db.getPledgeById)
 
-
+app.post('/pledges', db.postPledge)
 module.exports = app;
