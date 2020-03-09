@@ -7,12 +7,12 @@ app.use(cors());
 
 
 // url: http://localhost:3000/
-app.get("/", (req, res) => {
-  res.json({ info: 'here we are' })
-})
+// app.get("/", (req, res) => {
+//   res.json({ info: 'here we are' })
+// })
 
 // url: http://localhost:3000/pledges
-app.get("/pledges", db.getPledges);
+app.get('/pledges', db.getPledges);
 
 // url: http://localhost:3000/pledges/{id}
 app.get('/pledges/:id', db.getPledgeById)

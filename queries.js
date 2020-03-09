@@ -5,8 +5,8 @@ const Pool = require("pg").Pool;
 //     database: 'planetpledge',
 //     password: 'whatever', 
 //     port: 5432
-// })
 
+// })
 
 // DOTENV
 // We load the dotenv library and call the config() method, which loads the variables into the process.env
@@ -33,7 +33,6 @@ const getPledges = (req, res) => {
 
 const getPledgeById = (req, res) => {
     const id = parseInt(req.params.id)
-
     pool.query('SELECT * FROM pledges WHERE pledge_id = $1', [id], (error, results) => {
         if (error) {
             throw error
