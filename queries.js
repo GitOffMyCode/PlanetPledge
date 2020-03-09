@@ -1,12 +1,4 @@
 const Pool = require("pg").Pool;
-// const pool = new Pool({
-//     user: 'gennaheald',
-//     host: 'localhost',
-//     database: 'planetpledge',
-//     password: 'whatever', 
-//     port: 5432
-
-// })
 
 // DOTENV
 // We load the dotenv library and call the config() method, which loads the variables into the process.env
@@ -18,9 +10,6 @@ const pool = new Pool({
     user: process.env.DB_USER,
     password: process.env.DB_PASS
 })
-
-
-
 
 const getPledges = (req, res) => {
     pool.query('SELECT * FROM pledges', (error, results) => {
@@ -41,6 +30,15 @@ const getPledgeById = (req, res) => {
     })
 }
 
+const deletePledge = (req, res) => {
+    const id = parseInt(req.params.id)
+    pool.query('DELETE FROM pledges WHERE pledge_id = $1', [id], (error, results) => {
+        if (error) {
+            throw error
+        }
+        res.status(200).send(`User deleted with ID: ${id}`)  
+    })
+}
 
 // insert into pledges (pledge_title, pledge_detail, pledge_type, username) 
 // values ('eat vegan once a week', 'for health for the planet and for the animals', 'W', 'HelenG');
@@ -64,5 +62,7 @@ const postPledge = (req, res) => {
 module.exports = {
     getPledges,
     getPledgeById,
-    postPledge
-}
+    postPledge,
+    deletePledge,
+  }
+

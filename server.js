@@ -18,4 +18,8 @@ app.get('/pledges', db.getPledges);
 app.get('/pledges/:id', db.getPledgeById)
 
 app.post('/pledges', db.postPledge)
+
+app.delete('/pledges/:id', db.deletePledge)
+
+
 module.exports = app;
