@@ -34,18 +34,27 @@ describe("api", () => {
       // .expect('user deleted')
       .expect(200)
   })
-})
 
-describe("test API post endpoint", ()=>{
   test("returns status 201 when api called", () =>{
     return supertest(app)
     .post("/pledges")
-    .send({"title":"shampoo bar",
-    "detail":"buy shampoo bar, use it",
-    "type":"C",
+    .send({"pledge_title":"shampoo bar",
+    "pledge_detail":"buy shampoo bar, use it",
+    "pledge_type":"C",
     "username":"HelenG"})
     .expect(201);
   })
+
+  test("returns status 201 when pledge udated", () => {   
+    return supertest(app)
+      .post("/pledges/2")
+      .send({
+        "pledge_status": true,
+        "pledge_date": "'2020-01-22 19:10:25-07'"
+      })
+      .expect(201)
+  })
+
 })
 
 

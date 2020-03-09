@@ -45,11 +45,12 @@ const deletePledge = (req, res) => {
 // values ('ehampoo bar', 'buy shampoo bar and start using it', 'C', 'HelenG');
 
 const postPledge = (req, res) => {
-    const title = req.body.title;
-    const detail = req.body.detail;
-    const type = req.body.type;
+    const title = req.body.pledge_title;
+    const detail = req.body.pledge_detail;
+    const type = req.body.pledge_type;
     const username = req.body.username;
     const query = "INSERT INTO pledges (pledge_title, pledge_detail, pledge_type, username) VALUES ($1, $2, $3, $4) RETURNING pledge_id;";
+
     pool.query(query, [title, detail, type, username], (error, results) => {
         if (error) {
             console.log('there was a problem with this request');
@@ -59,10 +60,28 @@ const postPledge = (req, res) => {
     })
 }
 
+const updatePledge = (req, res) => {
+    const pledge_id = parseInt(req.params.id);
+    const pledge_date = req.body.pledge_date;
+    const pledge_status = req.body.pledge_status;
+    const query = "INSERT INTO pledge_status (pledge_id, pledge_date, pledge_status) VALUES ($1, $2, $3);";
+
+    pool.query(query, [pledge_id, pledge_date, pledge_status], (error, results) => {
+        if (error) {
+            console.log('there was a problem with this request');
+            throw error
+        }
+        // res.send("anything!")
+        res.status(201).send({'info': 'it worked!'})
+    })
+}
+
+
 module.exports = {
     getPledges,
     getPledgeById,
     postPledge,
     deletePledge,
+    updatePledge
   }
 
