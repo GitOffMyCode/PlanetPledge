@@ -21,5 +21,7 @@ app.post('/pledges', db.postPledge)
 
 app.delete('/pledges/:id', db.deletePledge)
 
+app.post('/pledges/:id', db.updatePledge)
+
 
 module.exports = app;
