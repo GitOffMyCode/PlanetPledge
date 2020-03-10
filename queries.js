@@ -42,7 +42,7 @@ const deletePledge = (req, res) => {
 
 // insert into pledges (pledge_title, pledge_detail, pledge_type, username) 
 // values ('eat vegan once a week', 'for health for the planet and for the animals', 'W', 'HelenG');
-// values ('ehampoo bar', 'buy shampoo bar and start using it', 'C', 'HelenG');
+// values ('shampoo bar', 'buy shampoo bar and start using it', 'C', 'HelenG');
 
 const postPledge = (req, res) => {
     const title = req.body.pledge_title;
