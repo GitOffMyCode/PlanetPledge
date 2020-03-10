@@ -19,7 +19,9 @@ app.post('/pledges', db.postPledge)
 app.delete('/pledges/:id', db.deletePledge)
 
 // url: http://localhost:3000/pledges{id}
-app.post('/pledges/:id', db.updatePledge)
+app.post('/pledges/:id', db.markDailyPledgeAsActive)
 
+// url: http://localhost:3000/pledges{id}
+app.delete('/pledges_status/:id', db.markDailyPledgeAsInactive)
 
 module.exports = app;

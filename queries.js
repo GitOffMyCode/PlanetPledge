@@ -36,7 +36,7 @@ const deletePledge = (req, res) => {
         if (error) {
             throw error
         }
-        res.status(200).send(`User deleted with ID: ${id}`)  
+        res.status(200).send(`User deleted with ID: ${id}`)
     })
 }
 
@@ -56,23 +56,35 @@ const postPledge = (req, res) => {
             console.log('there was a problem with this request');
             throw error
         }
-        else res.status(201).send({'pledge_id':results.rows[0].pledge_id})
+        else res.status(201).send({ 'pledge_id': results.rows[0].pledge_id })
     })
 }
 
-const updatePledge = (req, res) => {
+const markDailyPledgeAsActive = (req, res) => {
     const pledge_id = parseInt(req.params.id);
     const pledge_date = req.body.pledge_date;
-    const pledge_status = req.body.pledge_status;
-    const query = "INSERT INTO pledge_status (pledge_id, pledge_date, pledge_status) VALUES ($1, $2, $3);";
+    const query = "INSERT INTO pledge_status (pledge_id, pledge_date, pledge_status) VALUES ($1, $2, true);";
 
-    pool.query(query, [pledge_id, pledge_date, pledge_status], (error, results) => {
+    pool.query(query, [pledge_id, pledge_date], (error, results) => {
         if (error) {
             console.log('there was a problem with this request');
             throw error
         }
-        // res.send("anything!")
-        res.status(201).send({'info': 'it worked!'})
+        res.status(201).send({ 'info': 'updated successfully' })
+    })
+}
+
+
+const markDailyPledgeAsInactive = (req, res) => {
+    const pledge_id = parseInt(req.params.id);
+    const pledge_date = req.body.pledge_date;
+    const query = "DELETE from pledge_status WHERE pledge_id = $1 AND DATE(pledge_date) = $2";
+
+    pool.query(query, [pledge_id, pledge_date], (error, results) => {
+        if (error) {
+            throw error
+        }
+        res.status(200).send(`User deleted with ID: ${pledge_id}`)
     })
 }
 
@@ -82,6 +94,7 @@ module.exports = {
     getPledgeById,
     postPledge,
     deletePledge,
-    updatePledge
-  }
+    markDailyPledgeAsActive,
+    markDailyPledgeAsInactive
+}
 

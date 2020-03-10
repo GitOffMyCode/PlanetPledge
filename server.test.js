@@ -45,15 +45,15 @@ describe("api", () => {
     .expect(201);
   })
 
-  test("returns status 201 when pledge udated", () => {   
-    return supertest(app)
-      .post("/pledges/2")
-      .send({
-        "pledge_status": true,
-        "pledge_date": "'2020-01-22 19:10:25-07'"
-      })
-      .expect(201)
-  })
+  // test("returns status 201 when pledge udated", () => {   
+  //   return supertest(app)
+  //     .post("/pledges/2")
+  //     .send({
+  //       "pledge_status": true,
+  //       "pledge_date": "'2020-01-22 19:10:25-07'"
+  //     })
+  //     .expect(201)
+  // })
 
 })
 
