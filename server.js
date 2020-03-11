@@ -21,10 +21,10 @@ app.post('/pledges', db.postPledge);
 // url: http://localhost:3002/pledges/{id}
 app.delete('/pledges/:id', db.deletePledge);
 
-// url: http://localhost:3002/pledges{id}
+// url: http://localhost:3002/pledges_status{id}
 app.post('/pledges_status/:id', db.markDailyPledgeAsActive);
 
-// url: http://localhost:3002/pledges{id}
+// url: http://localhost:3002/pledges_status{id}
 app.delete('/pledges_status/:id', db.markDailyPledgeAsInactive);
 
 module.exports = app;

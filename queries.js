@@ -39,7 +39,6 @@ const getPledgeStatus = (req, res) => {
     })
 }
 
-
 const deletePledge = (req, res) => {
     const id = parseInt(req.params.id)
     pool.query('DELETE FROM pledge_status WHERE pledge_id = $1', [id], (error, results) => {
@@ -85,7 +84,6 @@ const markDailyPledgeAsActive = (req, res) => {
         res.status(201).send({ 'info': 'updated successfully' })
     })
 }
-
 
 const markDailyPledgeAsInactive = (req, res) => {
     const pledge_id = parseInt(req.params.id);
