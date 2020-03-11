@@ -30,6 +30,16 @@ const getPledgeById = (req, res) => {
     })
 }
 
+const getPledgeStatus = (req, res) => {
+    pool.query('SELECT * FROM pledge_status', (error, results) => {
+        if (error) {
+            throw error
+        }
+        res.status(200).json(results.rows)
+    })
+}
+
+
 const deletePledge = (req, res) => {
     const id = parseInt(req.params.id)
     pool.query('DELETE FROM pledge_status WHERE pledge_id = $1', [id], (error, results) => {
@@ -98,6 +108,7 @@ const markDailyPledgeAsInactive = (req, res) => {
 module.exports = {
     getPledges,
     getPledgeById,
+    getPledgeStatus,
     postPledge,
     deletePledge,
     markDailyPledgeAsActive,
