@@ -30,6 +30,7 @@ const getPledgeById = (req, res) => {
     })
 }
 
+// add order by pledge_id, pledge_date
 const getPledgeStatus = (req, res) => {
     pool.query('SELECT * FROM pledge_status', (error, results) => {
         if (error) {
